@@ -1,0 +1,2 @@
+# libft
+libft fonctions C
