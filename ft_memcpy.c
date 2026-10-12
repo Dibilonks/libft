@@ -1,17 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:30:08 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 19:28:10 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void *ft_memcpy(void *s1, const void *s2, size_t size)
+void	*ft_memcpy(void *s1, const void *s2, size_t size)
 {
-	char *dest;
-	const char *src;
+	char		*dest;
+	const char	*src;
 
-	if(!s1 && !s2)
-		return(NULL);
+	if (!s1 && !s2)
+		return (NULL);
 	dest = s1;
 	src = s2;
-	while(size--)
+	while (size--)
 		*dest++ = *src++;
-	return(s1);
+	return (s1);
 }
 
 /*void	putch(char c)

@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:30:32 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 19:30:15 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void *ft_memset(void *start, int init, size_t size)
+void	*ft_memset(void *start, int init, size_t size)
 {
-	unsigned char *ptr;
+	unsigned char	*ptr;
 
-	ptr = (unsigned char*)start;
-	while(size > 0)
+	ptr = (unsigned char *)start;
+	while (size > 0)
 	{
 		*ptr++ = (unsigned char)init;
 		size--;
 	}
-	return(start);
+	return (start);
 }
 /*
 void	putch(char c)

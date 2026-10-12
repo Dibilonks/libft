@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:26:55 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 17:26:59 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_atoi(const char *str)
@@ -11,7 +23,7 @@ int	ft_atoi(const char *str)
 	sign = 1;
 	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
 		i++;
-	while ((str[i] == '-') || (str[i] == '+'))
+	if ((str[i] == '-') || (str[i] == '+'))
 	{
 		if (str[i] == '-')
 			sign = sign * (-1);
@@ -24,5 +36,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * sign);
 }
-
-/*hello world*/

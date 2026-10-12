@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:33:32 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 19:43:27 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*size_t	ft_strlen(const char *str)
@@ -10,16 +22,16 @@
 	return(i);
 }*/
 
-size_t ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-        size_t len;
+	size_t	len;
 
-        len = ft_strlen(dst);
-        if(len >= size)
-                return(ft_strlen(src) + size);
-        if(len < size)
-                strncat(dst, src, size - len - 1);
-        return(ft_strlen(src) + len);
+	len = ft_strlen(dst);
+	if (len >= size)
+		return (ft_strlen(src) + size);
+	if (len < size)
+		strncat(dst, src, size - len - 1);
+	return (ft_strlen(src) + len);
 }
 
 /*void	putch(char c)

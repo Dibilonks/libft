@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:33:19 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 19:40:24 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*size_t	ft_strlen(const char *str)
@@ -22,7 +34,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 		return (NULL);
 	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	if (!str)
-		return(NULL);
+		return (NULL);
 	while (i < ft_strlen(s1))
 	{
 		str[i] = s1[i];

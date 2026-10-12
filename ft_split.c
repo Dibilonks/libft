@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:32:27 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 20:48:38 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*size_t ft_strlen(const char *str)
@@ -10,71 +22,72 @@
         return(i);
 }*/
 
-static int     cost(const char *str, char c)
+static int	ft_cost(const char *str, char c)
 {
-        int     i;
-        int     n;
+	int	i;
+	int	n;
 
-        i = 0;
-        n = 0;
-        while (str[i])
-        {
-                while (str[i] && str[i] != c)
-                        i++;
-                while (str[i] && str[i] == c)
-                        i++;
-                n++;
-        }
-        return (n);
+	i = 0;
+	n = 0;
+	while (str[i])
+	{
+		if (str[i] && str[i] != c)
+		{
+			while (str[i] && str[i] != c)
+				i++;
+			n++;
+		}
+		while (str[i] && str[i] == c)
+			i++;
+	}
+	return (n);
 }
 
-char **ft_split(const char *s, char c)
+static int	ft_fill_split(char **res, const char *s, char c, size_t *j)
 {
-	char	**res;
-	size_t	i; //index de string
-	size_t	j; // index pour l'array
-	size_t	y; // index pour copier
-	size_t	n; // index pour chque mot
-	size_t	h; // bomboclaat
-	
-	if (!s)
-		return (NULL);
-	if (!c)
-		return (NULL);
-	res = malloc(sizeof(char *) * (cost(s, c) + 1));
-	if (!res)
-		return (NULL);
+	size_t	i;
+	size_t	start;
+
 	i = 0;
-	j = 0;
 	while (s[i])
 	{
 		while (s[i] && s[i] == c)
 			i++;
-		h = i;
-		y = 0;
-		n = 0;
+		start = i;
 		while (s[i] && s[i] != c)
-		{
 			i++;
-			n++;
-		}
-		if (s[i] || s[i] == c || s[i] == '\0')
+		if (i > start)
 		{
-			res[j] = malloc(sizeof(char) * (n + 1));
-			if (!res[j])
-				return (NULL);
-			while (y < n)
-			{
-				res[j][y] = s[h + y];
-				y++;
-			}
-			res[j][y] = '\0';
-			while (s[i] == c)
-				i++;
+			res[*j] = malloc(sizeof(char) * (i - start + 1));
+			if (!res[*j])
+				return (0);
+			ft_memcpy(res[*j], s + start, i - start);
+			res[*j][i - start] = '\0';
+			(*j)++;
 		}
-		j++;
 	}
-	res[j] = '\0';
+	return (1);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	char	**res;
+	size_t	j;
+
+	if (!s)
+		return (NULL);
+	res = malloc(sizeof(char *) * (ft_cost(s, c) + 1));
+	if (!res)
+		return (NULL);
+	j = 0;
+	if (!ft_fill_split(res, s, c, &j))
+	{
+		while (j > 0)
+			free (res[--j]);
+		free (res);
+		return (NULL);
+	}
+	res[j] = NULL;
 	return (res);
 }
 

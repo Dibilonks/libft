@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:35:49 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 17:35:52 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*size_t	ft_strlen(const char *str)
@@ -10,7 +22,49 @@
 	return (i);
 }*/
 
-static int	cost(const char *str, const char *set)
+static int	zerone(char c, const char *set)
+{
+	size_t	i;
+
+	i = 0;
+	while (set[i])
+	{
+		if (set[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_strtrim(const char *s1, const char *set)
+{
+	char	*str;
+	size_t	start;
+	size_t	end;
+	size_t	i;
+
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	while (s1[start] && zerone(s1[start], set))
+		start++;
+	end = ft_strlen(s1);
+	while (end > start && zerone(s1[end - 1], set))
+		end--;
+	str = malloc(sizeof(char) * (end - start + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while ((start + i) < end)
+	{
+		str[i] = s1[start + i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+/*static int	cost(const char *str, const char *set)
 {
 	size_t	i;
 	size_t	y;
@@ -66,7 +120,7 @@ char	*ft_strtrim(const char *s1, const char *set)
 	}
 	str[n] = '\0';
 	return (str);
-}
+}*/
 
 /*void	putch(char c)
 {

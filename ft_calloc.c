@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:27:32 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 20:02:01 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_calloc(size_t n, size_t size)
 {
-	if (size != 0 && n > SIZE_MAX / size)
-		return (NULL);
 	void	*ptr;
 
+	if (size != 0 && n > SIZE_MAX / size)
+		return (NULL);
 	ptr = malloc(n * size);
 	if (!ptr)
 		return (NULL);
@@ -93,4 +105,3 @@ int	main(int ac, char **av)
 	putch('\n');
 	return (0);
 }*/
-

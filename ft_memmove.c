@@ -1,27 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:30:22 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 19:28:48 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*src1;
-	char	*dst1;
-	size_t	i;
+	const char	*src1;
+	char		*dst1;
 
-
-	i = 0;
-	if(!src && !dst)
-		return(NULL);
-	src1 = (char *)src;
+	if (!src && !dst)
+		return (NULL);
+	src1 = (const char *)src;
 	dst1 = (char *)dst;
-	while (i != len)
+	if (dst1 < src1)
+		ft_memcpy(dst, src, len);
+	else if (dst1 > src1)
 	{
-		dst1[i] = src1[i];
-		i++;
+		while (len > 0)
+		{
+			len--;
+			dst1[len] = src1[len];
+		}
 	}
-	dst = dst1;
 	return (dst);
-}/*
+}
 
-void	putch(char c)
+/*void	putch(char c)
 {
 	write (1, &c, 1);
 }

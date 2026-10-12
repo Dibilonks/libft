@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:29:24 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 20:52:38 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*size_t	ft_strlen(const char *str)
@@ -10,69 +22,47 @@
 	return (i);
 }*/
 
-static  char    *inv(char *str)
+static	int	ft_len(int n)
 {
-        int  i;
-        int  j;
-        char    *s;
-
-        s = malloc(sizeof(char) * (ft_strlen(str) + 1));
-        i = 0;
-        j = ft_strlen(str) - 1;
-        while (j >= 0)
-        {
-                s[i] = str[j];
-                i++;
-                j--;
-        }
-        s[i] = '\0';
-        return (s);
-}
-
-static	int	len(int n)
-{
+	int		len;
 	long	nb;
-	int	c;
 
-	c = 0;
+	len = 0;
 	nb = n;
-	while (nb < 0)
+	if (nb <= 0)
+		len = 1;
+	while (nb != 0)
 	{
-		nb = -nb;
-		c++;
-	}
-	while (nb > 0)
-	{
-		c++;
 		nb = nb / 10;
+		len++;
 	}
-	return (c);
+	return (len);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*res;
-	int	i;
+	long	nb;
+	int		i;
 
-	res = malloc(sizeof(char) * (len(n) + 1));
+	nb = n;
+	i = ft_len(n);
+	res = malloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
-	i = 0;
-	if (n < 0)
-		n = -n;
-	while (n > 0)
-	{
-		res[i] = (n % 10 + '0');
-		n = n / 10;
-		i++;
-	}
-	if (-n)
-	{
-		res[i] = '-';
-		i++;
-	}
 	res[i] = '\0';
-	return (inv(res));
+	res[0] = '0';
+	if (nb < 0)
+	{
+		res[0] = '-';
+		nb = -nb;
+	}
+	while (nb > 0)
+	{
+		res[--i] = ((nb % 10) + '0');
+		nb = nb / 10;
+	}
+	return (res);
 }
 
 /*int	conv(char *str)

@@ -1,22 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:29:40 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 19:25:33 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
 	unsigned char	*s;
 	unsigned char	ch;
-	size_t	i;
+	size_t			i;
 
 	i = 0;
 	s = ((unsigned char *)str);
 	ch = ((unsigned char)c);
-
-	while (i < n && s[i])
+	while (i < n)
 	{
 		if (s[i] == ch)
-			return((void *)s + i);
+			return ((void *)s + i);
 		i++;
 	}
-	return(NULL);
+	return (NULL);
 }
 
 /*void	putch(char c)

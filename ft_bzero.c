@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:27:07 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 17:38:51 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*void	putch(char c)
@@ -27,10 +39,10 @@ void	*ft_memset(void *s, int init, size_t size)
 		*ptr++ = (unsigned char)init;
 		size--;
 	}
-	return(s);
+	return (s);
 }
 
-void ft_bzero(void *s, size_t size)
+void	ft_bzero(void *s, size_t size)
 {
 	ft_memset(s, '\0', size);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:28:26 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 18:36:56 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /*int	ft_isalpha(int nb)
@@ -14,11 +26,11 @@ int	ft_isdigit(int nb)
 	return (0);
 }*/
 
-int ft_isalnum(int ch)
+int	ft_isalnum(int ch)
 {
-	if((ft_isalpha(ch) || ft_isdigit(ch)) == 1)
-		return(1);
-	return(0);
+	if ((ft_isalpha(ch) || ft_isdigit(ch)) == 1)
+		return (1);
+	return (0);
 }
 
 /*void	putch(char c)

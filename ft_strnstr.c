@@ -1,32 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 17:35:23 by pedpared          #+#    #+#             */
+/*   Updated: 2026/10/12 19:51:35 by pedpared         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_strnstr(const char *little, const char *big, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	const char *s1;
-	const char *s2;
-	size_t	s;
 	size_t	i;
 	size_t	j;
 
-	s1 = little;
-	s2 = big;
-        i = 0;
-	s = 0;
-        if (s2[0] == '\0')
-                return ((char *)s1);
-        while (s1[i] && s < len)
-        {
-                j = 0;
-                while (s1[i + j] && s1[i + j] == s2[j])
-                {
-                        if (s2[j + 1] == '\0')	
-                                return ((char *)s1 + i);
-                        j++;
-                }
-		s++;
-                i++;
-        }
-        return (NULL);
+	i = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[i] && i < len)
+	{
+		j = 0;
+		while (big[i + j] && little[j]
+			&& big[i + j] == little[j] && (i + j) < len)
+			j++;
+		if (little[j] == '\0')
+			return ((char *)big + i);
+		i++;
+	}
+	return (NULL);
 }
 
 /*void	putch(char c)
