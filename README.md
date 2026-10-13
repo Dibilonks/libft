@@ -12,9 +12,10 @@ functions themselves, the project is an introduction to dynamic memory
 allocation, pointer manipulation, string handling, and writing a
 Makefile that respects the 42 norm.
 
-The project implements 34 functions in total:
+The project implements 43 functions in total:
 - 23 functions from libc (isalpha, strlen, memset, atoi, calloc, ...)
 - 11 additional functions (substr, split, itoa, putchar_fd, ...)
+- 9 linked-list fonctions (lstnew, lstadd_front, lstsize, lstmap, ...)
 
 ## Instructions
 
