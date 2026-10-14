@@ -6,7 +6,7 @@
 /*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 17:33:32 by pedpared          #+#    #+#             */
-/*   Updated: 2026/10/12 19:43:27 by pedpared         ###   ########.fr       */
+/*   Updated: 2026/10/14 19:25:42 by pedpared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,25 @@
 	return(i);
 }*/
 
+static char	*ft_strncat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (dst[i])
+		i++;
+	while (src[j] && j < size)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
+
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	len;
@@ -30,7 +49,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (len >= size)
 		return (ft_strlen(src) + size);
 	if (len < size)
-		strncat(dst, src, size - len - 1);
+		ft_strncat(dst, src, size - len - 1);
 	return (ft_strlen(src) + len);
 }
 
