@@ -6,7 +6,7 @@
 /*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 17:27:32 by pedpared          #+#    #+#             */
-/*   Updated: 2026/10/12 20:02:01 by pedpared         ###   ########.fr       */
+/*   Updated: 2026/10/14 19:00:12 by pedpared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_calloc(size_t n, size_t size)
 	ptr = malloc(n * size);
 	if (!ptr)
 		return (NULL);
-	memset(ptr, 0, n * size);
+	ft_memset(ptr, 0, n * size);
 	return (ptr);
 }
 

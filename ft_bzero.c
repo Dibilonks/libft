@@ -6,7 +6,7 @@
 /*   By: pedpared <pedpared@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 17:27:07 by pedpared          #+#    #+#             */
-/*   Updated: 2026/10/12 17:38:51 by pedpared         ###   ########.fr       */
+/*   Updated: 2026/10/14 19:00:44 by pedpared         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	putstr(char *str)
 		putch(str[i]);
 		i++;
 	}
-}*/
+}
 
 void	*ft_memset(void *s, int init, size_t size)
 {
@@ -40,8 +40,7 @@ void	*ft_memset(void *s, int init, size_t size)
 		size--;
 	}
 	return (s);
-}
-
+}*/
 void	ft_bzero(void *s, size_t size)
 {
 	ft_memset(s, '\0', size);
